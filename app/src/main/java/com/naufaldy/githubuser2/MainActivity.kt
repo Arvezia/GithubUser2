@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity(){
     private fun getUserData(){
 
         val client = AsyncHttpClient()
-        client.addHeader("Authorization", "token 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")
+        client.addHeader("Authorization", "token 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")
         client.addHeader("User-Agent", "request")
         val url = "https://api.github.com/users"
 
@@ -122,7 +122,7 @@ class MainActivity : AppCompatActivity(){
 
 
         val client = AsyncHttpClient()
-        client.addHeader("Authorization", "token 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")
+        client.addHeader("Authorization", "token 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")
         client.addHeader("User-Agent", "request")
 
         for ((i,userData ) in listUser.withIndex()) {

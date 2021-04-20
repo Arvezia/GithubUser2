@@ -51,6 +51,7 @@ class FollowersFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentFollowersBinding.inflate(layoutInflater)
         adapter = FollowersAdapter()
+        adapter.notifyDataSetChanged()
 
         binding.rvFollowers.adapter = adapter
         binding.rvFollowers.layoutManager = LinearLayoutManager(activity)
@@ -64,7 +65,7 @@ class FollowersFragment : Fragment() {
     private fun getFollowersData(username: String){
 
         val client = AsyncHttpClient()
-        client.addHeader("Authorization", "token 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")
+        client.addHeader("Authorization", "token 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")
         client.addHeader("User-Agent", "request")
         val url = "https://api.github.com/users/${username}/followers"
 
@@ -119,7 +120,7 @@ class FollowersFragment : Fragment() {
 
 
         val client = AsyncHttpClient()
-        client.addHeader("Authorization", "token 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")
+        client.addHeader("Authorization", "token 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")
         client.addHeader("User-Agent", "request")
 
         for ((i,followersData ) in listUser.withIndex()) {
