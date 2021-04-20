@@ -70,6 +70,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/git_black_500"
+        app:tabTextColor="@color/white"
         app:tabIndicatorFullWidth="false"
         app:tabIndicatorHeight="2dp"
         app:tabMode="fixed"
@@ -79,7 +80,7 @@
         app:layout_constraintTop_toBottomOf="@+id/dt_following"
         />
 
-    <androidx.viewpager.widget.ViewPager
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

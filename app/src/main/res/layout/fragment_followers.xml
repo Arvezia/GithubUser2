@@ -6,6 +6,7 @@
     tools:context=".FollowersFragment">
 
     <ProgressBar
+        android:id="@+id/FollowersLoading"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
