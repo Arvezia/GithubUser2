@@ -12,7 +12,9 @@ import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import com.naufaldy.githubuser2.databinding.FragmentFollowersBinding
 import cz.msebera.android.httpclient.Header
+import kotlinx.android.synthetic.main.fragment_followers.*
 import kotlinx.android.synthetic.main.fragment_following.*
+import kotlinx.android.synthetic.main.fragment_following.FollowingLoading
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -44,18 +46,18 @@ class FollowersFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_followers, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding = FragmentFollowersBinding.inflate(layoutInflater)
+        binding = FragmentFollowersBinding.inflate(inflater, container, false)
         adapter = FollowersAdapter()
         adapter.notifyDataSetChanged()
 
         binding.rvFollowers.adapter = adapter
         binding.rvFollowers.layoutManager = LinearLayoutManager(activity)
         binding.rvFollowers.setHasFixedSize(true)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         getFollowersData(arguments?.getString(EXTRA_USERNAME)!!)
 
@@ -65,7 +67,7 @@ class FollowersFragment : Fragment() {
     private fun getFollowersData(username: String){
 
         val client = AsyncHttpClient()
-        client.addHeader("Authorization", "token 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")
+        client.addHeader("Authorization", "token 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")
         client.addHeader("User-Agent", "request")
         val url = "https://api.github.com/users/${username}/followers"
 
@@ -120,7 +122,7 @@ class FollowersFragment : Fragment() {
 
 
         val client = AsyncHttpClient()
-        client.addHeader("Authorization", "token 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")
+        client.addHeader("Authorization", "token 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")
         client.addHeader("User-Agent", "request")
 
         for ((i,followersData ) in listUser.withIndex()) {
@@ -161,9 +163,9 @@ class FollowersFragment : Fragment() {
 
     private fun showLoading(state: Boolean){
         if (state){
-            FollowingLoading.visibility = View.VISIBLE
+            FollowersLoading.visibility = View.VISIBLE
         } else{
-            FollowingLoading.visibility = View.GONE
+            FollowersLoading.visibility = View.GONE
         }
     }
 

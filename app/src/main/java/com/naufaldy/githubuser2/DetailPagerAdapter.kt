@@ -12,7 +12,7 @@ class DetailPagerAdapter(activity: GithubUserDetail, username: String) : Fragmen
 
     private val tabFragment: Map<Int, () -> Fragment> = mapOf(
             EXTRA_FOLLOWERS to {FollowersFragment.newInstance(username)},
-            //EXTRA_FOLLOWING to {FollowingFragment.newInstance(username)}
+            EXTRA_FOLLOWING to {FollowingFragment.newInstance(username)}
     )
 
     override fun getItemCount(): Int  = tabFragment.size
