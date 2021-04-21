@@ -60,10 +60,10 @@ class MainActivity : AppCompatActivity(){
     }
     private fun searchUser(){
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-            val searchView = R.id.searchView as SearchView
+            //val searchView = binding.searchView as SearchView
 
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
-        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+        searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener{
         override fun onQueryTextSubmit(query: String): Boolean {
             if(query.isNotEmpty()){
                 listUser.clear()
